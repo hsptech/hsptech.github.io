@@ -49,32 +49,36 @@
         smoothThreshold="5"
       >
         <!-- Group your Halloween models inside this anchor so they stay locked to the desk -->
-        <a-entity id="halloween-group" position="0 0 0" rotation="0 0 0" scale="0.4 0.4 0.4">
+        <!-- <a-entity id="halloween-group" position="0 0 0" rotation="0 0 0" scale="0.4 0.4 0.4"> -->
           <!-- Pumpkin -->
-          <a-entity
+          <!-- <a-entity
             gltf-model="models/halloween_pumpkin_low_poly.glb"
             position="0 0 0"
             rotation="0 0 0"
             scale="0.4 0.4 0.4">
-          </a-entity>
-
-          <!-- Ghost floating over the desk -->
+          </a-entity> -->
           <a-entity
+            gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+            scale="5 5 5"
+            position="50 150 0"
+          >
+          <!-- Ghost floating over the desk -->
+          <!-- <a-entity
             gltf-model="models/teru_teru_bozu.glb"
             position="0 0.25 -0.2"
             rotation="0 0 0"
             scale="0.3 0.3 0.3"
             animation="property: position; to: 0 0.35 -0.2; dir: alternate; dur: 1500; loop: true; easing: easeInOutSine">
-          </a-entity>
+          </a-entity> -->
 
           <!-- Devil near monitor area -->
-          <a-entity
+          <!-- <a-entity
             gltf-model="models/devil_skull_retexture.glb"
             position="0.2 0 -0.1"
             rotation="0 30 0"
             scale="0.25 0.25 0.25">
-          </a-entity>
-        </a-entity>
+          </a-entity> -->
+        <!-- </a-entity> -->
       </a-nft>
 
       <a-entity camera></a-entity>
