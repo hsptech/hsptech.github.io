@@ -29,28 +29,55 @@
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-  >
-    <a-nft
-      type="nft"
-      url="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
+ <a-scene
+      renderer="antialias: true; logarithmicDepthBuffer: true"
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-entity
-        gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-        scale="5 5 5"
-        position="50 150 0"
+      <!-- A simple ambient + directional light so GLB looks good -->
+      <a-entity light="type: ambient; intensity: 0.9"></a-entity>
+      <a-entity light="type: directional; intensity: 0.7" position="0 1 1"></a-entity>
+
+      <!-- NFT anchor: url points to the base path of the NFT files (without extension) -->
+      <a-nft
+        type="nft"
+        url="nfts/pumpkin/halloween"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5"
       >
-      </a-entity>
-    </a-nft>
-    <a-entity camera></a-entity>
-  </a-scene>
+        <!-- Group your Halloween models inside this anchor so they stay locked to the desk -->
+        <a-entity id="halloween-group" position="0 0 0" rotation="0 0 0" scale="0.4 0.4 0.4">
+          <!-- Pumpkin -->
+          <a-entity
+            gltf-model="models/halloween_pumpkin_low_poly.glb"
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="0.4 0.4 0.4">
+          </a-entity>
+
+          <!-- Ghost floating over the desk -->
+          <a-entity
+            gltf-model="models/teru_teru_bozu.glb"
+            position="0 0.25 -0.2"
+            rotation="0 0 0"
+            scale="0.3 0.3 0.3"
+            animation="property: position; to: 0 0.35 -0.2; dir: alternate; dur: 1500; loop: true; easing: easeInOutSine">
+          </a-entity>
+
+          <!-- Devil near monitor area -->
+          <a-entity
+            gltf-model="models/devil_skull_retexture.glb"
+            position="0.2 0 -0.1"
+            rotation="0 30 0"
+            scale="0.25 0.25 0.25">
+          </a-entity>
+        </a-entity>
+      </a-nft>
+
+      <a-entity camera></a-entity>
+    </a-scene>
 </body>
 </html>
